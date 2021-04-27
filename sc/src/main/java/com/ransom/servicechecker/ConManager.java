@@ -4,7 +4,7 @@ import android.content.Context;
 
 import connection.rxconnection.connection.ConnectionListener;
 import connection.rxconnection.connection.HttpRequest;
-import connection.rxconnection.session.SessionLogin;
+import connection.rxconnection.session.SessionRun;
 
 public class ConManager implements ConnectionListener {
     protected ConnectionListener listener;
@@ -18,6 +18,7 @@ public class ConManager implements ConnectionListener {
     @Override
     public void onSuccessWithData(Object o) {
         if (o instanceof ResponseAccess) {
+            new SessionRun(context).setRun(((ResponseAccess) o).isAccess());
             if (!((ResponseAccess) o).isAccess()) {
                 listener.unAuthorized(null, null);
                 return;
