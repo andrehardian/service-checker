@@ -18,9 +18,10 @@ public class ConManager implements ConnectionListener {
     @Override
     public void onSuccessWithData(Object o) {
         if (o instanceof ResponseAccess) {
-            new SessionLogin(context).clearToken();
-            listener.unAuthorized(null, null);
-            return;
+            if (!((ResponseAccess) o).isAccess()) {
+                listener.unAuthorized(null, null);
+                return;
+            }
         }
         listener.onSuccessWithData(o);
     }
