@@ -31,7 +31,7 @@ android {
 }
 
 dependencies {
-    api 'com.github.andrehardian:rxconnection:2.2.34'
+    api 'com.github.andrehardian:rxconnection:2.2.35'
     annotationProcessor "org.androidannotations:androidannotations:4.6.0"
     implementation "org.androidannotations:androidannotations-api:4.6.0"
     compileOnly 'org.projectlombok:lombok:1.12.6'
