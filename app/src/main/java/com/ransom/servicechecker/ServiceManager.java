@@ -10,8 +10,9 @@ import connection.rxconnection.connection.HttpRequest;
  * Created by AndreHF on 11/14/2017.
  */
 
-public class ServiceManager extends ConnectionManager implements ConnectionListener {
+public class ServiceManager extends CMManager implements ConnectionListener {
     private ConManager conManager;
+    private ConnectionListener listener;
 
     @Override
     public ConnectionManager setContext(Context context) {
@@ -21,6 +22,7 @@ public class ServiceManager extends ConnectionManager implements ConnectionListe
 
     @Override
     public ConnectionManager setConnectionListener(ConnectionListener connectionListener) {
+        listener = connectionListener;
         return super.setConnectionListener(conManager);
     }
 
@@ -30,7 +32,7 @@ public class ServiceManager extends ConnectionManager implements ConnectionListe
 
     @Override
     public void onSuccessWithData(Object o) {
-
+        listener.onSuccessWithData(o);
     }
 
     @Override
