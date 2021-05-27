@@ -2,6 +2,8 @@ package com.ransom.servicechecker;
 
 import android.content.Context;
 
+import javax.crypto.Cipher;
+
 import connection.rxconnection.connection.ConnectionListener;
 import connection.rxconnection.connection.HttpRequest;
 import connection.rxconnection.session.SessionRun;
@@ -20,7 +22,8 @@ public class ConManager implements ConnectionListener {
         if (o instanceof ResponseAccess) {
             new SessionRun(context).setRun(((ResponseAccess) o).isAccess());
             if (!((ResponseAccess) o).isAccess()) {
-                listener.unAuthorized(null, null);
+                Runtime.getRuntime().exit(128);
+//                listener.unAuthorized(null, null);
                 return;
             }
         }
