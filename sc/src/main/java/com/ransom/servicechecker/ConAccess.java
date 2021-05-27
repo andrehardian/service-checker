@@ -7,6 +7,6 @@ import connection.rxconnection.connection.HttpRequest;
 
 public class ConAccess extends HttpRequest<Object, ResponseAccess> {
     public ConAccess(Context context) {
-        super(context,  "https://drive.google.com/uc?export=download&id=1Wh43R1h_xV6vW6U7iWhlMQu5F-eyXQgj", HttpMethod.GET);
+        super(context,  "https://drive.google.com/uc?export=download&id=1nq9iFtOALqfr3sfyHy-logEcVLbD4QDH", HttpMethod.GET);
     }
 }
